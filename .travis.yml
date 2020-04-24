@@ -252,6 +252,14 @@ install:
       source $VENV/bin/activate;
     fi
 
+  # TEMP: Diagnostics for permission denied error on public Travis s390x
+  - id
+  - ls -ld /home/travis || true
+  - ls -ld /home/travis/.cache || true
+  - ls -ld /home/travis/.cache/pip || true
+  - ls -ld /home/travis/.cache/pip/wheels || true
+  - ls -al /home/travis/.cache/pip/wheels || true
+
   - which python
   - python --version
   - which pip
